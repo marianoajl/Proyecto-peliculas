@@ -7,7 +7,13 @@
     --tertiary-color:  #90cea1;    /* light-green */
 
     /* width + height */
-    --header-height: 77px;
+    --header-height: 55px;
+    --main-mx-width: 1400px;
+
+    /* size + weight */
+    --btn-text: 0.75rem;
+
+    --btn-weight: 700;
 }
 
 /* R E S E T  */
@@ -15,17 +21,118 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: grid;
-    place-items: center;
+    font-family: Helvetica, Arial;
 }
 
 body {
     display: grid;
     place-items: center;
+    background-color: var(--secondary-color)
 }
 
 /*  H E A D E R  */
 .header {
     width: 100%;
     height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 1.5rem;
+    background: var(--primary-color);
 }
+
+.header-img {
+    width: 250px;
+    /* fill: var(--secondary-color); */
+}
+
+.header-title {
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    letter-spacing: 2px;
+}
+
+/* M A I N  */
+.container {
+    /* max-width: 100vw; */
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    padding: 1rem 1rem calc(var(--header-height) + 1rem) 1rem;
+    /* background-color: var(--secondary-color); */
+}
+
+/* TARJETA DE PELICULA */
+.movie {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: var(--primary-color);
+    border-radius: 0.5rem;
+}
+
+.movie:hover {
+    transition-duration: 0.3s;
+    scale: 1.03;
+}
+
+.movie-link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.movie-img {
+    max-width: 200px;
+    margin: 0.5rem;
+}
+
+.movie-title {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+}
+
+
+/* B O T O N E R A */
+.btn-container {
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    bottom: 0;
+    padding: 0 2rem;
+    font-size: 1.5rem;
+    background: var(--primary-color);
+}
+
+.btn-container > button {
+    display: grid;
+    place-items: center;
+    margin: 0 10px;
+    width: 130px;
+    height: 40px;
+    border-radius: 30px;
+    font-size: var(--btn-text);
+    font-weight: var(--btn-weight);
+    text-transform: uppercase;
+    cursor: pointer; 
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    background: var(--secondary-color);
+}
+
+
+
+
