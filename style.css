@@ -32,6 +32,8 @@ body {
 
 /*  H E A D E R  */
 .header {
+    position: sticky; 
+    top: 0;
     width: 100%;
     height: var(--header-height);
     display: flex;
@@ -40,6 +42,7 @@ body {
     padding: 0 2rem;
     font-size: 1.5rem;
     background: var(--primary-color);
+    z-index: 1000; /* se mantiene por delante de las peliculas */
 }
 
 .header-img {
