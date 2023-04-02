@@ -1,0 +1,31 @@
+/* CUSTOM PROPERTIES */
+/* colors */
+:root {
+    /* colors */
+    --primary-color:   #0d253f;     /* dark-blue */
+    --secondary-color: #01b4e4;   /* light-blue */
+    --tertiary-color:  #90cea1;    /* light-green */
+
+    /* width + height */
+    --header-height: 77px;
+}
+
+/* R E S E T  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+}
+
+body {
+    display: grid;
+    place-items: center;
+}
+
+/*  H E A D E R  */
+.header {
+    width: 100%;
+    height: var(--header-height);
+}
