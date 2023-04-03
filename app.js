@@ -42,10 +42,11 @@ const getMovies = async () => {
             console.log(resMovies);
             let movies = "";
             resMovies.data.results.forEach((movie) => {
+                original_title = movie.original_title.toLowerCase();
                 movies += `<div id="${movie.id}" class="movie">
-                                <a class="movie-link" href=""></a>
+                                <a class="movie-link" href="#"></a>
                                 <img class="movie-img" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}">
-                                <h6 class="movie-title">${movie.original_title}</h6>
+                                <h6 class="movie-title">${original_title}</h6>
                            </div>`;
             });
             document.querySelector("#container").innerHTML = movies;

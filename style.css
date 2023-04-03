@@ -11,7 +11,8 @@
     --primary-color-opacity: #0d253f80;
 
     /* width + height */
-    --header-height: 55px;
+    --header-max-height: 55px;
+    --header-min-height: 40px;
     --main-mx-width: 1400px;
 
     /* size + weight */
@@ -36,7 +37,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 /* Track */
@@ -60,11 +61,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height: var(--header-height);
+    height: var(--header-max-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1rem;
     font-size: 1.5rem;
     background: var(--primary-color);
     z-index: 1000;
@@ -84,13 +85,12 @@ body {
 
 /* M A I N  */
 .container {
-    /* max-width: 100vw; */
     width: 100%;
-    min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
-    padding: calc(var(--header-height) + 1rem) 1rem;
+    padding: calc(var(--header-max-height) + 1rem) 1rem;
+    overflow-x: hidden;
     /* background-color: var(--secondary-color); */
 }
 
@@ -126,17 +126,18 @@ body {
 }
 
 .movie-title {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-align: center;
     color: var(--secondary-color);
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 
 /* B O T O N E R A */
 .btn-container {
     width: 100%;
-    height: var(--header-height);
+    height: var(--header-max-height);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,4 +173,36 @@ body {
     color: var(--primary-color);
     background: var(--secondary-color);
     border-radius: 30px;
+    font-weight: 500;
 }
+
+@media screen and (max-width: 768px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .header {
+        height: var(--header-min-height);
+        padding: 0 0.5rem;
+    }
+
+    .header-img {
+        display: none;
+    }
+
+    .header-title {
+    }
+
+    /* M A I N  */
+    .container {
+        gap: 0.5rem;
+        padding: calc(var(--header-min-height) + 0.5rem) 0.5rem calc(var(--header-max-height) + 0.5rem) 0.5rem;
+    }
+
+    /* TARJETA DE PELICULA */
+    .movie {
+        padding: 0.5rem;
+    }
+}
+    
