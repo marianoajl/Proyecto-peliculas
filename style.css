@@ -2,9 +2,13 @@
 /* colors */
 :root {
     /* colors */
-    --primary-color:   #0d253f;     /* dark-blue */
-    --secondary-color: #01b4e4;   /* light-blue */
-    --tertiary-color:  #90cea1;    /* light-green */
+    --primary-color: #0d253f;
+    /* dark-blue */
+    --secondary-color: #01b4e4;
+    /* light-blue */
+    --tertiary-color: #90cea1;
+    /* primary colo w/opacity */
+    --primary-color-opacity: #0d253f80;
 
     /* width + height */
     --header-height: 55px;
@@ -25,14 +29,35 @@
 }
 
 body {
-    display: grid;
-    place-items: center;
+    /* display: grid;
+    place-items: center; */
+    /* width */
     background-color: var(--secondary-color)
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--secondary-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color-opacity);
+    border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
 }
 
 /*  H E A D E R  */
 .header {
-    position: sticky; 
+    position: fixed;
     top: 0;
     width: 100%;
     height: var(--header-height);
@@ -42,7 +67,8 @@ body {
     padding: 0 2rem;
     font-size: 1.5rem;
     background: var(--primary-color);
-    z-index: 1000; /* se mantiene por delante de las peliculas */
+    z-index: 1000;
+    /* se mantiene por delante de las peliculas */
 }
 
 .header-img {
@@ -62,9 +88,9 @@ body {
     width: 100%;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 1rem;
-    padding: 1rem 1rem calc(var(--header-height) + 1rem) 1rem;
+    padding: calc(var(--header-height) + 1rem) 1rem;
     /* background-color: var(--secondary-color); */
 }
 
@@ -81,8 +107,9 @@ body {
 }
 
 .movie:hover {
-    transition-duration: 0.3s;
+    outline: 2px solid var( --tertiary-color);
     scale: 1.03;
+    transition-duration: 0.3s;
 }
 
 .movie-link {
@@ -113,14 +140,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed; 
+    position: fixed;
     bottom: 0;
     padding: 0 2rem;
     font-size: 1.5rem;
     background: var(--primary-color);
 }
 
-.btn-container > button {
+.btn-container>button {
     display: grid;
     place-items: center;
     margin: 0 10px;
@@ -130,12 +157,19 @@ body {
     font-size: var(--btn-text);
     font-weight: var(--btn-weight);
     text-transform: uppercase;
-    cursor: pointer; 
+    cursor: pointer;
     letter-spacing: 2px;
     color: var(--primary-color);
     background: var(--secondary-color);
+
 }
 
-
-
-
+.btn-container>span {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 38px;
+    color: var(--primary-color);
+    background: var(--secondary-color);
+    border-radius: 30px;
+}

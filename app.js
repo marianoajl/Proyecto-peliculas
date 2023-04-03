@@ -9,27 +9,27 @@ let page = 1; // variable para controla la paginacion
 
 //capturar los botones
 
-let btnAnterior = document.querySelector("#btn-previous");
-let btnSiguiente = document.querySelector("#btn-next");
+let btnPreviousPage = document.querySelector("#btn-previous");
+let btnNextPage = document.querySelector("#btn-next");
 /* 
 funcion boton anterior */
 
-// btnAnterior.addEventListener("click", () => {
-//     if (pagina > 1) {
-//         /*    pagina = pagina -1 */
-//         pagina -= 1;
-//         //llamar a la funcion que carga la pagina
-//         cargarPeliculas();
-//     }
-// });
+btnPreviousPage.addEventListener("click", () => {
+    if (page > 1) {
+        /*    pagina = pagina -1 */
+        page -= 1;
+        //llamar a la funcion que carga la pagina
+        getMovies();
+    }
+});
 
-// btnSiguiente.addEventListener("click", () => {
-//     if (pagina <= 500) {
-//         pagina += 1;
-//         //llamar a la funcion que carga la pagina
-//         cargarPeliculas();
-//     }
-// });
+btnNextPage.addEventListener("click", () => {
+    if (page <= 500) {
+        page += 1;
+        //llamar a la funcion que carga la pagina
+        getMovies();
+    }
+});
 
 // funcion que carga las peliculas
 
@@ -49,10 +49,13 @@ const getMovies = async () => {
                            </div>`;
             });
             document.querySelector("#container").innerHTML = movies;
+        } else if (resMovies === 404) {
+            console.log("page not found");
         }
     } catch (error) {
         console.log(error);
     }
+    document.querySelector("#page-number").innerHTML = `${page}`;
 };
 
 // const cargarPeliculas = async () => {
