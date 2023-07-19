@@ -1,2 +1,2 @@
 # Proyecto-peliculas
-Creación y conversión de una app de películas desde HTML-CSS-JS a React
+Armado de vista p con prueba de paginación y consulta a API de <a href="https://developer.themoviedb.org/docs">"The Movie DB"</a> con HTML, CSS y Javascript
